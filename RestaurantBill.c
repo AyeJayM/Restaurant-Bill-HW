@@ -12,7 +12,7 @@
 3. Prompt the user for tax and tip to be entered as a percent.
         Multiply both by .01 to get the percent as a decimal.
 
-5. Multiply these two values by the total.
+5. Multiply these two values by the meal cost.
 
 6. Add these totals and print this sum to screen.
         Also print the meal cost, tax, and tip individually.
@@ -78,7 +78,7 @@ int main()
 
 
     //TIP
-    float tip;
+    float tip; //Float so we can multiply by .01 and add to total later
 
     scanf("%f", &tip);
 
@@ -89,13 +89,14 @@ int main()
     }
 
     tip *= 0.01; //This will give us the decimal version of tip
+    tip *= mealCost; //Multiply tip by meal cost to get the tip
 
-    printf("Thank you! Now please enter the tax rate as a percentage. ");
+    printf("\nThank you! Now please enter the tax rate as a percentage. ");
     printf("Same rules as tip. For example, to enter 8%% tax, simply enter \"8\"\n");
 
 
     //TAX
-    float tax;
+    float tax; //Float so we can multiply by .01 and add to total later
 
     scanf("%f", &tax); 
 
@@ -106,12 +107,13 @@ int main()
     }
 
     tax *= 0.01; //This will give us the decimal version of tax
+    tax *= mealCost; //Multiply meal cost by tax to get the tax
 
     //TOTAL COST
     float total = mealCost + tip + tax;
-    printf("\nThus, your total cost is %.2f.", total);
+    printf("\nThus, your total cost is $%.2f.", total);
     printf("\nCost Breakdown...");
-    printf("\nTax: %.2f \nTip: %.2f \nMeal: %.2f", tax, tip, mealCost);
+    printf("\nTax:  $%.2f \nTip:  $%.2f \nMeal: $%.2f", tax, tip, mealCost);
 
 
 
