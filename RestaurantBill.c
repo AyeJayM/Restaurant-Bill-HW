@@ -45,6 +45,7 @@ int main()
     int meal;
     float mealCost;
 
+    //MEAL IS RANDOMLY PICKED
     meal = mealPicker();
 
     if (meal == 0) // Salad Option - $9.95
@@ -74,6 +75,44 @@ int main()
     printf("\nYour meal will cost $%.2f.\n", mealCost);
     printf("\nPlease enter the amount you would like to tip as a percentage.");
     printf("\nFor example, to enter a 20%% tip, simply enter \"20\"\n");
+
+
+    //TIP
+    float tip;
+
+    scanf("%f", &tip);
+
+    while (tip < 0.0) //Do not allow negative inputs
+    {
+        printf("Please enter a valid number. No negatives.\n");
+        scanf("%f", &tip);
+    }
+
+    tip *= 0.01; //This will give us the decimal version of tip
+
+    printf("Thank you! Now please enter the tax rate as a percentage. ");
+    printf("Same rules as tip. For example, to enter 8%% tax, simply enter \"8\"\n");
+
+
+    //TAX
+    float tax;
+
+    scanf("%f", &tax); 
+
+    while (tip < 0.0) //Do not allow negative inputs
+    {
+        printf("Please enter a valid number. No negatives.\n");
+        scanf("%f", &tax);
+    }
+
+    tax *= 0.01; //This will give us the decimal version of tax
+
+    //TOTAL COST
+    float total = mealCost + tip + tax;
+    printf("\nThus, your total cost is %.2f.", total);
+    printf("\nCost Breakdown...");
+    printf("\nTax: %.2f \nTip: %.2f \nMeal: %.2f", tax, tip, mealCost);
+
 
 
 
